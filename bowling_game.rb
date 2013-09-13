@@ -78,9 +78,15 @@ class BowlingGame
   #
   # Returns nothing.
   def score_spare
-    @total_score += 10 + @rolls[@current_roll + 2]
-    @current_roll += 2
-    @frame += 1
+    if frame < 10
+      @total_score += 10 + @rolls[@current_roll + 2]
+      @current_roll += 2
+      @frame += 1
+    else
+      @total_score += 10 + @rolls[@current_roll + 2]
+      @current_roll += @rolls.size
+      @extra_frame += 2
+    end
   end
 
   # Adds a score of < 10 to the total score. Returns nothing.

@@ -58,6 +58,7 @@ describe BowlingGame do
         game.roll(10)
         game.roll(10)
         game.roll(10)
+        game.roll(10)
       
         expect(game.score).to eq(30)
       end
@@ -68,10 +69,10 @@ describe BowlingGame do
         18.times { game.roll(0) }
         game.roll(5)
         game.roll(5)
-        game.roll(5)
+        game.roll(10)
         game.roll(5)
 
-        expect(game.score).to eq(15)
+        expect(game.score).to eq(20)
       end
     end
 
