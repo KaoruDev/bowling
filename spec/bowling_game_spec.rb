@@ -60,8 +60,20 @@ describe BowlingGame do
         game.roll(10)
       
         expect(game.score).to eq(30)
-        #expect(game.frame).to eq(10)
       end
     end
+
+    context 'when last frame is a spare' do
+      it 'adds the next roll to total score and not any additional frame' do
+        18.times { game.roll(0) }
+        game.roll(5)
+        game.roll(5)
+        game.roll(5)
+        game.roll(5)
+
+        expect(game.score).to eq(15)
+      end
+    end
+
   end 
 end # end of Bowling game
