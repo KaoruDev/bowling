@@ -50,5 +50,18 @@ describe BowlingGame do
         expect(game.score).to eq(26)
       end
     end
+
+    context 'when last 3 frames are strikes' do
+      it 'total score is 30 and does not record any extra pins' do
+        18.times { game.roll(0) }
+        game.roll(10)
+        game.roll(10)
+        game.roll(10)
+        game.roll(10)
+      
+        expect(game.score).to eq(30)
+        #expect(game.frame).to eq(10)
+      end
+    end
   end 
 end # end of Bowling game
